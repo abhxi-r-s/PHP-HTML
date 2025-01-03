@@ -8,14 +8,16 @@
         $sql="SELECT* FROM student WHERE user='$user' AND password='$pass'";
         $result=mysqli_query($conn,$sql);
 
-        if($result)
+        if($result->num_rows>0)
         {
-            echo "login successfull";
+             header('Location:teacher.php');
+
         }
         else
         {
             echo "login failed";
         }
+        
 
     }
     mysqli_close($conn);
@@ -26,6 +28,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    
+    
 </head>
 <body>
     <h1>LOGIN PAGE</h1>
